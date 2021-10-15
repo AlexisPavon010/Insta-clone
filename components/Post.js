@@ -2,7 +2,7 @@ import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverT
 import {
     BookmarkIcon,
     ChatIcon,
-    DotsHorizontalIcon, EmojiHappyIcon, HeartIcon, PaperAirplaneIcon, 
+    DotsHorizontalIcon, EmojiHappyIcon, HeartIcon, PaperAirplaneIcon,
 } from '@heroicons/react/outline'
 import { HeartIcon as HeartIconFilled } from '@heroicons/react/solid'
 import { useSession } from 'next-auth/react'
@@ -83,7 +83,7 @@ function Post({ id, username, userImg, img, caption }) {
             <div className='flex justify-between pt-4 px-4'>
                 <div className="flex space-x-4">
                     {hasLikes ?
-                       ( <HeartIconFilled onClick={addLikes} className='btn text-red-500' />)
+                        (<HeartIconFilled onClick={addLikes} className='btn text-red-500' />)
                         :
                         (<HeartIcon onClick={addLikes} className='btn' />)
                     }
@@ -93,10 +93,10 @@ function Post({ id, username, userImg, img, caption }) {
                 <BookmarkIcon className='btn' />
             </div>
 
+            {likes.length > 0 && (
+                <p className='font-bold mb-1'>{likes.length} likes</p>
+            )}
             <p className='p-5 truncate'>
-                {likes.length > 0 && (
-                    <p className='font-bold mb-1'>{likes.length} likes</p>
-                )}
                 <span className='font-bold mr-1'>{username}</span>
                 {caption}
             </p>
